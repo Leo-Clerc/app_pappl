@@ -7,6 +7,7 @@ import Aide from './Aide';
 import ParametragePartie from './ParametragePartie';
 import EcranDeJeu1 from './EcranDeJeu1';
 import EcranDeJeu2 from './EcranDeJeu2';
+import EcranDeFinDePartie from './EcranDeFinDePartie';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ const App = () => {
         <Stack.Screen name="ParametragePartie" component={ParametragePartie}/>
         <Stack.Screen name="EcranDeJeu1" component={EcranDeJeu1}/>
         <Stack.Screen name='EcranDeJeu2' component={EcranDeJeu2}/>
+        <Stack.Screen name='EcranDeFinDePartie' component={EcranDeFinDePartie}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
