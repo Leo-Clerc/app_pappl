@@ -1,3 +1,6 @@
+/**
+ * @returns L'écran de fin de partie
+ */
 import React, { Component } from 'react';
 import { Text, View, Button, Image } from 'react-native';
 
