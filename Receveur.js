@@ -16,10 +16,7 @@ const Receveur = () => {
         onValueChange={toggleSwitch}
         value={reponse}
         />
-        <SliderAge 
-            ageCorrect={AGE_SAHA}
-            reponse = {res_slider}
-        />
+        <SliderAge/>
         <Text>Séquence de la protéine</Text>
         <TextInput
         onChange={(text) => {if(text==SEQ_ADN){res_txt = true};
