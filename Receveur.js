@@ -12,14 +12,15 @@ const seqProteine = "MYHKL"
 const Receveur = () => {
     let [ageOk,setAgeOk] = useState(false)
     let [proteineOk, setProteineOk] = useState(false)
-    const changeAgeOk = () => setAgeOk(prev => !prev);
+
+    const changeAgeOk = (bool) => setAgeOk(bool);
+    const changeProteineOk = (bool) => setProteine(AgeOk);
     return <View>
-                <Text>{ageOk ? "Oui" : "Non"}</Text>
                 <Image style={{width: 300, height: 400}} source={imgSrc}/>
                 <ChampAge bonAge={AgeDoc} ageOk = {ageOk} changeAgeOk = {changeAgeOk}/>
                 <TextInput onEndEditing={value => setProteine(value==seqProteine)}/>
                 <Text>La valeur rentrée EST {ageOk ? "correcte" : "incorrecte"}</Text>
-                <>{ageOk&&<Text>Waw</Text>}</>
+                <>{ageOk&&proteineOk&&<Button title = "L'écran suivant"/>}</>
             </View>
 }
 export default Receveur
