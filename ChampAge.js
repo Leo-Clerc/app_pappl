@@ -8,7 +8,7 @@ const ChampAge = ({bonAge, correct}) =>{
     [res, setRes] = useState(false);
     return  <View>
     <Text>Âge rentré : {age}</Text>
-    <TextInput value={age} onChangeText = {setAge}/>
+    <TextInput value={age} onEndEditing = {setAge} editable ={true}/>
     <Slider
         value= {age}
         onValueChange={setAge}
@@ -18,7 +18,7 @@ const ChampAge = ({bonAge, correct}) =>{
         maximumValue = {80}
         
     />
-    <Text>La valeur rentrée est {res ? "correct" : "incorrecte"}</Text>
+    <Text>La valeur rentrée est {res ? "correcte" : "incorrecte"}</Text>
 </View>
 }
 
