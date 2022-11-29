@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import Slider from '@react-native-community/slider';
 
-const SliderAge = ({bonAge, correct}) =>{
+const ChampAge = ({bonAge, correct}) =>{
     [age, setAge] = useState(20);
     return  <View>
     <Text>Âge rentré : {age}</Text>
+    <TextInput value={age} />
     <Slider
         value= {age}
         onValueChange={setAge}
@@ -19,4 +20,4 @@ const SliderAge = ({bonAge, correct}) =>{
 </View>
 }
 
-export default SliderAge;
+export default ChampAge;
