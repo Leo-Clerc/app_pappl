@@ -7,12 +7,6 @@ const EcranDeJeu1 = ({ navigation }) => {
         <View>
         <Text>Le premier écran de jeu est là</Text>
         <Receveur/>
-        <Button
-        title="Admettons que les infos soient correctes"
-        onPress={() =>
-          navigation.navigate('EcranDeJeu2')
-        }
-        />
         </View>
       
     );
