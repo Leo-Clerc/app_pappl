@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Text, View, TextInput } from 'react-native';
 import Slider from '@react-native-community/slider';
 
-const ChampAge = ({bonAge, ageOk, setAgeOk ,changeAgeOk}) =>{
+const ChampAge = ({bonAge, changeAgeOk}) =>{
     [age, setAge] = useState(20);
     return  <View>
     <Text>Âge rentré : {age}</Text>
-    <TextInput value={age} onEndEditing = {setAge} editable ={true}/>
+    <TextInput style = {StyleSheet.input} value={age} onEndEditing = {value => setAge(value)} keyboardType="phone-pad"/>
     <Slider
         value= {age}
         onValueChange={setAge}
@@ -17,7 +17,6 @@ const ChampAge = ({bonAge, ageOk, setAgeOk ,changeAgeOk}) =>{
         maximumValue = {80}
         
     />
-    <Text>La valeur rentrée est {ageOk ? "correcte" : "incorrecte"}</Text>
 </View>
 }
 
