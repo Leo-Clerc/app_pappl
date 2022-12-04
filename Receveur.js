@@ -1,7 +1,7 @@
 /**
  * @return Ce composant est l'interface à remplir par l'utilisateur sur l'écran de jeu 1
  */
-import { Image, Text, TextInput, Button } from "react-native";
+import { Image, Text, TextInput, Button, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from "react";
 import React from 'react';
@@ -27,6 +27,12 @@ const Receveur = () => {
                 <>{ageOk&&proteineOk&&<Button title = "Continuer" onPress={() =>
           navigation.navigate('EcranDeJeu2')
         }/>}</>
+        <Text>{ageOk}</Text>
             </View>
 }
+
+const styles = StyleSheet.create({
+  
+});
+
 export default Receveur
