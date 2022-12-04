@@ -5,7 +5,7 @@ import Receveur from './Receveur';
 const EcranDeJeu1 = ({ navigation }) => {
     return(
         <View>
-        <Text>Le premier écran de jeu est là</Text>
+        <Text>Trouver les informations sur le docteur Saha pour continuer</Text>
         <Receveur/>
         </View>
       
