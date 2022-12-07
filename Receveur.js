@@ -1,5 +1,5 @@
 /**
- * @return Ce composant est l'interface à remplir par l'utilisateur sur l'écran de jeu 1
+ * @return Ce composant est l'interface à remplir par l'utilisateur sur l'écran de jeu 1. Il affiche une image du docteur Sahe, et demande le sexe, l'âge et la séquence protéinique du docteur. L'âge est géré par le composant ChampAge
  */
 import { Image, Text, TextInput, Button, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';

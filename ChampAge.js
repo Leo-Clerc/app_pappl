@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import Slider from '@react-native-community/slider';
 
+/**
+ * 
+ * @param {*} param0 
+ * @returns Le composant permettant de recevoir un âge rentré par l'utilisateur pour répondre, et mettre à jour le booléen selon que l'utilisateur réponde correctement ou non
+ */
+
 const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
     [ageTI, setAgeTI] = useState(age)
     return  <View>
