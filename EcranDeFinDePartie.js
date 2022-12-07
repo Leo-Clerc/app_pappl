@@ -1,5 +1,5 @@
 /**
- * @returns L'écran de fin de partie
+ * @returns L'écran de fin de partie, affichant des messages et images différents selon comment l'utilisateur y est arrivé.
  */
 import React, { Component } from 'react';
 import { Text, View, Button, Image } from 'react-native';
