@@ -12,19 +12,21 @@ const AgeDoc = 47;
 const seqProteine = 'MYHKL'
 
 const Receveur = () => {
-    let [ageOk,setAgeOk] = useState(false)
+    const [ageOk,setAgeOk] = useState(false)
     const [age, setAge] = useState(20)
+    const [genre, setGenre] = useState()
     const navigation = useNavigation();
     let [proteineOk, setProteineOk] = useState(false)
     const changeAgeOk = (bool) => setAgeOk(bool);
     const changeAge = (value) => setAge(value)
     
     return <View>
-                <Text>{ageOk ? "Oui" : "Non"}</Text>
-                <Image style={{width: 300, height: 400}} source={imgSrc}/>
+                <Image style={{width: 200, height: 300}} source={imgSrc}/>
+                <Button title="Homme" onPress={() => setGenre(false)}/>
+                <Button title="Femme" onPress={() => setGenre(true)}/>
                 <ChampAge bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
                 <TextInput onChangeText={value => setProteineOk(value===seqProteine)}/>
-                <>{ageOk&&proteineOk&&<Button title = "Continuer" onPress={() =>
+                <>{ageOk&&proteineOk&&genre&&<Button title = "Continuer" onPress={() =>
           navigation.navigate('EcranDeJeu2')
         }/>}</>
         <Text>{ageOk}</Text>
