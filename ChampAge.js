@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native-web';
 
 const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
     return  <View>
-    <TextInput style = {StyleSheet.input} value = {age.toString()} onChangeText = {(value) => {changeAge(parseInt(value)); changeAgeOk(parseInt(value) == bonAge)}}  keyboardType="numeric"  />
+    <TextInput style = {styles.input} value = {age.toString()} onChangeText = {(value) => {changeAge(parseInt(value)); changeAgeOk(parseInt(value) == bonAge)}}  keyboardType="numeric"  />
     <Slider
         value= {age}
         onValueChange={(value) => {changeAge(value)}}
@@ -24,5 +24,13 @@ const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
 </View>
 }
 
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+      }, 
+});
 
 export default ChampAge;

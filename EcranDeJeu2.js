@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
+const nomDonneurCorrect = "Dr Maya Curado";
+const ageDonneurCorrect = 36;
+const donneursPotentiels = [["Léon Patounec", 22],["Dr Emilia Caubert",],["Thomas Parker",],["Béatrice Tapalinga",],["Vlad Koscov",]];
 
 const EcranDeJeu2 = ({ navigation }) => {
     return(

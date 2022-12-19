@@ -11,7 +11,7 @@ const EcranDeFinDePartie = ({ route, navigation }) => {
   return(
         <View>
         <Text>Vous avez {gagne ? "gagné" : "perdu"}</Text>
-        <Image source={gagne ? require('./congrats.gif') : require('./kermit-worried.gif')} />
+        <Image style={{width: 300, height: 200}} source={gagne ? require('./congrats.gif') : require('./kermit-worried.gif')} />
         <Button
         title="Revenir"
         onPress={() =>

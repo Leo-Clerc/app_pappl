@@ -25,7 +25,7 @@ const Receveur = () => {
                 <Button title="Homme" onPress={() => setGenre(false)}/>
                 <Button title="Femme" onPress={() => setGenre(true)}/>
                 <ChampAge bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
-                <TextInput onChangeText={value => setProteineOk(value===seqProteine)}/>
+                <TextInput onChangeText={value => setProteineOk(value===seqProteine)} style = {styles.input}/>
                 <>{ageOk&&proteineOk&&genre&&<Button title = "Continuer" onPress={() =>
           navigation.navigate('EcranDeJeu2')
         }/>}</>
@@ -34,7 +34,11 @@ const Receveur = () => {
 }
 
 const styles = StyleSheet.create({
-  
+  input: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+    }, 
 });
-
 export default Receveur
