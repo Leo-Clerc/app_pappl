@@ -3,7 +3,22 @@ import { Text, View, Button } from 'react-native';
 
 const nomDonneurCorrect = "Dr Maya Curado";
 const ageDonneurCorrect = 36;
-const donneursPotentiels = [["Léon Patounec", 22],["Dr Emilia Caubert",],["Thomas Parker",],["Béatrice Tapalinga",],["Vlad Koscov",]];
+const donneursPotentiels = [["Léon Patounec", 22],["Dr Emilia Caubert",65],["Thomas Parker",61],["Béatrice Tapalinga",23],["Vlad Koscov",55]];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+const positionDonneurCorrect = getRandomInt(4);
+
+let indexFauxDonneurs = [];
+while(indexFauxDonneurs.length<3){
+  var nouvelIndex = getRandomInt(5)
+  if(indexFauxDonneur.indexOf(nouvelIndex)===-1){
+    indexFauxDonneurs.push(nouvelIndex)
+  }
+}
+const fauxDonneurs = [donneursPotentiels]
 
 const EcranDeJeu2 = ({ navigation }) => {
     return(
