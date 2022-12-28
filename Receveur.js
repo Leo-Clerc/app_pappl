@@ -7,7 +7,7 @@ import { useState } from "react";
 import React from 'react';
 import { View } from "react-native";
 import ChampAge from './ChampAge'
-let imgSrc = require('./docteur.png');
+let imgSrc = require('./pictures/docteur.png');
 const AgeDoc = 47;
 const seqProteine = 'MYHKL'
 
