@@ -5,16 +5,15 @@ import React from 'react';
 import { View } from "react-native";
 import ChampAge from './ChampAge';
 
-const Donneur = ({nom, bonAge, imageSource, changeAgeOk}) => {
-    const [ageOk,setAgeOk] = useState(false);
-    const [age, setAge] = useState(20);
-    const [genre, setGenre] = useState();
-    const changeAgeOk = (bool) => setAgeOk(bool);
-    const changeAge = (value) => setAge(value);
+const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite}) => {
     return <View>
-            <Image source = {require(imageSource)}/>
+            
             <Text>{nom}</Text>
-            <Button title={}/>
-            <ChampAge bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
+            <Button title="Homme" onPress={() => changeGenre(indicationGenre==="M")}/>
+            <Button title="Femme" onPress={() => changeGenre(indicationGenre==="F")}/>
+            <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
+            <>{{ageOk}&&{genre}&&<Text>Compatibilité : {compatibilite}</Text>}</>
     </View>
 }
+
+export default Donneur; 

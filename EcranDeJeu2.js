@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Text, View, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Donneur from './Donneur'
 
 const nombreDeDonneurs = 4;
 const nomDonneurCorrect = "Dr Maya Curado";
 const ageDonneurCorrect = 36;
-const donneursPotentiels = [["Léon Patounec", 22, "M"],["Dr Emilia Caubert",65, "F"],["Thomas Parker",61, "M"],["Béatrice Tapalinga",23, "F"],["Vlad Koscov",55,"M"]];
+const donneursPotentiels = [["Léon Patounec", 22, "M",40],["Dr Emilia Caubert",65, "F",20],["Thomas Parker",61, "M",40],["Béatrice Tapalinga",23, "F",60],["Vlad Koscov",55,"M",30]];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -34,24 +35,35 @@ for(index=0;index<indexFauxDonneurs.length+1;index++){
 }*/
 
 const EcranDeJeu2 = ({ navigation }) => {
-  ages = []
-  changeAges = []
-  changeAgesOk = []
-  genres=[]
-  changeGenres = []
+  const ages = []
+  const changeAges = []
+  const agesOk = []
+  const changeAgesOk = []
+  const genres=[]
+  const changeGenres = []
 
   for(index=0;index<nombreDeDonneurs;index++){
-    [age,setAge] = useState(20);
-    const changeAge = (value) => setAge(value)
+    const [age,setAge] = useState(20);
     ages.push(age)
+    const changeAge = (value) => setAge(value)
     changeAges.push(changeAge)
+    const [ageOk,setAgeOk] = useState(false)
+    agesOk.push(ageOk)
+    const changeAgeOk = (value) => setAgeOk(value)
+    changeAgesOk.push(changeAgeOk)
+    const [genre,setGenre] = useState();
+    genres.push(genre)
+    const changeGenre = (value) => setGenre(value)
+    changeGenres.push(changeGenre)
   }
   Donneurs = []
   let donneurCorrectAjoute = false;
 for(let index=0;index<nombreDeDonneurs;index++){
   dernierStop = index;
   if(index==positionDonneurCorrect){
-    Donneurs.push(<Text key={index.toString()}>Test, et c'est le bon : {index}</Text>)
+    Donneurs.push(<Donneur key={index.toString()} nom = {nomDonneurCorrect} age = {ages[index]} bonAge = {ageDonneurCorrect} 
+    changeAge = {changeAges[index]} ageOk = {agesOk[index]} changeAgeOk = {changeAgesOk[index]} indicationGenre = "F" genre = {genres[index]} changeGenre={changeGenres[index]} compatibilite= {100}
+    />)
     donneurCorrectAjoute = true;
   }
   else if(!donneurCorrectAjoute){
