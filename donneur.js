@@ -6,7 +6,7 @@ import { View } from "react-native";
 import ChampAge from './ChampAge';
 
 const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite, 
-    correct, resolu                    
+    correct                   
 }) => {
     return <View>
             
@@ -16,7 +16,6 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
             <>{ageOk&&genre&&<Text>Compatibilité : {compatibilite}%</Text>}</>
             <>{resolu&&<Button title={correct ? "gagner": "perdre"}/>}</>
-            <Text>{resolu}</Text>
     </View>
 }
 

@@ -41,7 +41,7 @@ const EcranDeJeu2 = ({ navigation }) => {
   const changeAgesOk = []
   const genres=[]
   const changeGenres = []
-  let [resolu,setResolu] = useState(false);
+  let [resolu,setResolu] = useState(false); 
   const verifierTout = () => {if(genres.every(Boolean)&&agesOk.every(Boolean)){setResolu(resolu=true)}};
   useEffect(() => verifierTout());
   for(index=0;index<nombreDeDonneurs;index++){
@@ -95,7 +95,6 @@ for(let index=0;index<nombreDeDonneurs;index++){
  
   return(
         <View>
-        <Text>{resolu}</Text>
         {Donneurs}
         </View>
     )
