@@ -6,7 +6,7 @@ import { View } from "react-native";
 import ChampAge from './ChampAge';
 
 const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite, 
-    correct                   
+    correct, resolu                   
 }) => {
     return <View>
             
