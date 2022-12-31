@@ -15,7 +15,12 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
             <Button title="Femme" onPress={() => changeGenre(indicationGenre==="F")}/>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
             <>{ageOk&&genre&&<Text>Compatibilité : {compatibilite}%</Text>}</>
-            <>{resolu&&<Button title={correct ? "gagner": "perdre"}/>}</>
+            <>{resolu&&<Button title={correct ? "gagner": "perdre"} onPress={() =>
+          navigation.navigate('EcranDeFinDePartie',{
+            gagne: false
+          })}/>}
+                
+            </>
     </View>
 }
 
