@@ -78,7 +78,7 @@ for(let index=0;index<nombreDeDonneurs;index++){
   genre = {genres[index]} 
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index]][3]}
-  correct = {false} resolu = {resolu}
+  correct = {false} resolu = {resolu} 
   />)
   }
   else{Donneurs.push(<Donneur key={index.toString()} nom = {donneursPotentiels[indexFauxDonneurs[index-1]][0]} 
@@ -89,7 +89,7 @@ for(let index=0;index<nombreDeDonneurs;index++){
   genre = {genres[index]} 
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index-1]][3]}
-  correct = {false} resolu = {resolu}
+  correct = {false} resolu = {resolu} 
   />)
 }}  
  
