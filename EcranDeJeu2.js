@@ -1,3 +1,6 @@
+/**
+ * @returns Le deuxième écran de jeu, sur lequel le joueur doit fournir les informations trouvées sur les donneurs pour pouvoir ensuite choisir le bon donneur.
+ */
 import React, { useState, useEffect } from 'react';
 import { Text, View, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
