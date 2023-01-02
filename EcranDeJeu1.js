@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import Receveur from './Receveur';

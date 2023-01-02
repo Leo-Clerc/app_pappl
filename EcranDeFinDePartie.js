@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * @returns L'écran de fin de partie, affichant des messages et images différents selon comment l'utilisateur y est arrivé.
  */
