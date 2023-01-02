@@ -8,7 +8,6 @@ const Accueil = ({ navigation }) => {
   <View style={styles.container} >
     <Text style={styles.title} >Transplant'Action</Text>
     <Text style={styles.soustitre}> Un "Escape Game" éducatif </Text>
-    <ImageBackground source={imgSrc} style={styles.image}>
    <Text style={{textAlign: 'center'}}> 
     <Pressable style={styles.button}
         title="Jouer"
@@ -27,7 +26,6 @@ const Accueil = ({ navigation }) => {
               <Text style={styles.buttonText}> Aide </Text>
       </Pressable>
     </Text>
-    </ImageBackground>
       </View>
   );
   }
