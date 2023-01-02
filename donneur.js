@@ -1,14 +1,17 @@
 /* eslint-disable prettier/prettier */
 import { Image, Text, TextInput, Button, StyleSheet, Pressable, Dimensions } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import React from 'react';
 import { View } from 'react-native';
 import ChampAge from './ChampAge';
 
+
+
 const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite, 
     correct, resolu}) => {
-    return <scrollView style={styles.container}>           
+    const navigation = useNavigation();
+    return <View style={styles.container}>           
             <Text style={styles.nom}>{nom}</Text>
             <Text style={styles.instruction}> Sexe du donneur ? </Text>
             <Text>
@@ -18,9 +21,12 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
             <Text style={styles.instruction}> Âge du donneur ? </Text>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
             <>{ageOk&&genre&&<Text>Compatibilité : {compatibilite}%</Text>}</>
-            <>{resolu&&<Pressable style={styles.button} title={correct ? "gagner": "perdre"}> <Text style={styles.buttonText}> Choisir </Text> </Pressable>}</>
+            <>{resolu&&<Pressable style={styles.button} title={correct ? "gagner": "perdre"}onPress={() =>
+          navigation.navigate('EcranDeFinDePartie',{
+            gagne:  correct
+          })}> <Text style={styles.buttonText}> Choisir </Text> </Pressable>}</>
             <Text>{resolu}</Text>
-    </scrollView>
+    </View>
 }
 
 const styles = StyleSheet.create({

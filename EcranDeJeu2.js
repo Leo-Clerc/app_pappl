@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, Button, StyleSheet, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Donneur from './Donneur'
+import {  Timer } from 'react-native-stopwatch-timer';
 
 const nombreDeDonneurs = 4;
 const nomDonneurCorrect = 'Dr Maya Curado';
@@ -36,6 +37,10 @@ for(index=0;index<indexFauxDonneurs.length+1;index++){
 }*/
 
 const EcranDeJeu2 = ({ navigation }) => {
+  const timer = global.time;
+  const [isTimerStart, setIsTimerStart] = useState(true);
+  const [timerDuration, setTimerDuration] = useState(timer);
+  const [resetTimer, setResetTimer] = useState(false);
   const ages = []
   const changeAges = []
   const agesOk = []
@@ -96,6 +101,27 @@ for(let index=0;index<nombreDeDonneurs;index++){
  
   return(
         <View style={styles.container}>
+         <Timer 
+            totalDuration={timerDuration}
+            secs
+            //Time Duration
+            start={isTimerStart}
+            //To start
+            reset={resetTimer}
+            //To reset
+            options={options}
+            //options for the styling
+            handleFinish={() => {
+              navigation.navigate('EcranDeFinDePartie', {gagne: false});
+            }}
+            //can call a function On finish of the time
+            getTime={(time) => {
+              time = time.split(':')
+              time = (((Number(time[0])*3600) + (Number(time[1])*60) + Number(time[2])) * 1000) + Number(time[3])
+              global.time = time;
+              console.log(time);
+            }}
+          />
           <Text style={styles.title}> Étape 2 </Text>
           <Text style={styles.instruction}> Rentrer les informations relatives aux donneurs </Text>
         <Text>{resolu}</Text>
@@ -192,5 +218,21 @@ const styles = StyleSheet.create({
     padding: 10,
   }, 
 });
+
+const options = {
+  container: {
+    backgroundColor: '#FF0000',
+    padding: 5,
+    borderRadius: 5,
+    width: 200,
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize: 25,
+    color: '#FFF',
+    marginLeft: 7,
+  },
+};
 
 export default EcranDeJeu2

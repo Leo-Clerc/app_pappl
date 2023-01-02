@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { useState } from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, Button, Dimensions } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { StyleSheet } from 'react-native-web';
 
@@ -21,6 +21,7 @@ const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
         step = {1}
         minimumValue = {20}
         maximumValue = {80}
+        style={{width: Dimensions.get('window').width/4-10, alignSelf: 'center',}}
     />
 </View>
 }
@@ -31,6 +32,8 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        width: Dimensions.get('window').width/4-10,
+        alignSelf: 'center',
       }, 
 });
 

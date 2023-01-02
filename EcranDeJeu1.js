@@ -1,17 +1,48 @@
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
-import { Text, View, Button, Pressable, StyleSheet, scrollView } from 'react-native';
+import React, { Component, useState } from 'react';
+import { Text, View, Button, Pressable, StyleSheet, scrollView, TouchableHighlight, Image } from 'react-native';
 import Receveur from './Receveur';
+import {  Timer } from 'react-native-stopwatch-timer';
+let imgSrc = require('./pictures/docteur.png');
 /**
  * 
  * @param {*} param0 
  * @returns Le premier écran de jeu, qui affiche receveur.
  */
-const EcranDeJeu1 = ({ navigation }) => {
+const EcranDeJeu1 = ({ route, navigation }) => {
+    const number = route.params.timer;
+    const timer = number * 60000;
+    const num = 3;
+    const [isTimerStart, setIsTimerStart] = useState(true);
+    const [timerDuration, setTimerDuration] = useState(timer);
+    const [resetTimer, setResetTimer] = useState(false);
+    global.time = timer;
     return(
         <View style={styles.container}>
+         <Timer 
+            totalDuration={timerDuration}
+            secs
+            //Time Duration
+            start={isTimerStart}
+            //To start
+            reset={resetTimer}
+            //To reset
+            options={options}
+            //options for the styling
+            handleFinish={() => {
+              navigation.navigate('EcranDeFinDePartie', {gagne: false});
+            }}
+            //can call a function On finish of the time
+            getTime={(time) => {
+              time = time.split(':')
+              time = (((Number(time[0])*3600) + (Number(time[1])*60) + Number(time[2])) * 1000) + Number(time[3])
+              global.time = time;
+              console.log(time);
+            }}
+          />
         <Text style={styles.title} > Étape 1: </Text>
         <Text style={styles.instruction}>Trouver les informations sur le docteur Saha pour continuer</Text>
+        <Image style={styles.image} source={imgSrc}/>
         <Receveur/>
         </View>      
     );
@@ -25,6 +56,7 @@ const styles = StyleSheet.create({
       justifyContent: 'start',
       marginTop: 20,
       backgroundColor: 'white',
+
     },
     buttonText: {
       fontSize: 20,
@@ -65,12 +97,18 @@ const styles = StyleSheet.create({
       borderBottomRightRadius: 20,
     },
     image: {
-      flex: 1,
-      resizeMode: 'cover',
-      justifyContent: 'center',
-      opacity: 1,
-      tintColor: 'black',
-    },
+        alignSelf: 'center',
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+        width: 300,
+        height: 300,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        margin: 5,
+      },
     text: {
       color: 'white',
       fontSize: 42,
@@ -79,5 +117,21 @@ const styles = StyleSheet.create({
       backgroundColor: '#000000a0',
     },
   });
+
+  const options = {
+    container: {
+      backgroundColor: '#FF0000',
+      padding: 5,
+      borderRadius: 5,
+      width: 200,
+      alignItems: 'center',
+      alignSelf: 'center',
+    },
+    text: {
+      fontSize: 25,
+      color: '#FFF',
+      marginLeft: 7,
+    },
+  };
 
 export default EcranDeJeu1

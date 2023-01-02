@@ -2,7 +2,7 @@
 /**
  * @return Ce composant est l'interface à remplir par l'utilisateur sur l'écran de jeu 1. Il affiche une image du docteur Sahe, et demande le sexe, l'âge et la séquence protéinique du docteur. L'âge est géré par le composant ChampAge
  */
-import { Image, Text, TextInput, Button, StyleSheet, Pressable, scrollView } from "react-native";
+import { Image, Text, TextInput, Button, StyleSheet, Pressable, Dimensions } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from "react";
 import React from 'react';
@@ -20,18 +20,16 @@ const Receveur = () => {
     let [proteineOk, setProteineOk] = useState(false)
     const changeAgeOk = (bool) => setAgeOk(bool);
     const changeAge = (value) => setAge(value)
-    
     return <View style={styles.container}>
-                <Image style={styles.image} source={imgSrc}/>
                 <Text style={styles.instruction}> Quelle est le sexe du docteur Saha ?</Text>
                 <Text>
                   <Pressable style={[genre ? styles.button : styles.buttonpressed]} title="Homme" onPress={() => setGenre(false)}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
                   <Pressable style={[genre ? styles.buttonpressed : styles.button]} title="Femme" onPress={() => setGenre(true)}> <Text style={styles.buttonText}> Femme </Text> </Pressable>
                 </Text>
                 <Text style={styles.instruction}> Quelle est l'âge du docteur Saha ? </Text>
-                <ChampAge bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
+                <ChampAge style={styles.barreTexte} bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
                 <Text style={styles.instruction}> Quelle est la séquence protéinique du docteur Saha ? </Text>
-                <TextInput onChangeText={value => setProteineOk(value===seqProteine)} style = {styles.input}/>
+                <TextInput  onChangeText={value => setProteineOk(value===seqProteine)} style = {styles.input}/>
                 <>{ageOk&&proteineOk&&genre&&<Pressable  style={styles.button} title = "Continuer" onPress={() =>
           navigation.navigate('EcranDeJeu2')
         }> <Text style={styles.buttonText}> Continuer </Text> </Pressable> }</>
@@ -54,12 +52,13 @@ const styles = StyleSheet.create({
   },
   barreTexte: {
     textAlign: 'center',
-    height: 40,
+    height: 100,
     borderColor: 'gray',
     borderWidth: 1,
-    width: 300,
+    width: Dimensions.get('window').width-1000,
     alignSelf: 'center',
     marginHorizontal: 10,
+    marginBottom: 30,
   },
   title: {
     fontSize: 50,
@@ -123,6 +122,8 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    width: Dimensions.get('window').width/4-10,
+    alignSelf: 'center',
   }, 
 });
 

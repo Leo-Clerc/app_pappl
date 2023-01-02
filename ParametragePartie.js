@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View ,Text, TextInput, Button, Pressable, StyleSheet, } from 'react-native';
 /**
  * 
@@ -7,6 +7,7 @@ import { View ,Text, TextInput, Button, Pressable, StyleSheet, } from 'react-nat
  * @returns 
  */
 const ParametragePartie = ({ navigation }) => {
+    const [number, onChangeNumber] = React.useState(30);
     return(
         <View style={styles.container}>
         <Text style={styles.title} > Paramétrage de la partie </Text>
@@ -14,14 +15,16 @@ const ParametragePartie = ({ navigation }) => {
         <Text>
         <TextInput 
         style={styles.barreTexte}
-          DefaultValue="30"/>
+          onChangeText={onChangeNumber}
+          value={number}
+          />
         <Text> minutes </Text>
         </Text>
           <Pressable
               style={styles.button}
               title="Lancer la partie"
               onPress={() =>
-                navigation.navigate('EcranDeJeu1')
+                navigation.navigate('EcranDeJeu1', {timer: number} )
               }
             >
               <Text style={styles.buttonText}> Lancer la partie </Text>
