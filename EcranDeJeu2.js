@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, StyleSheet, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Donneur from './Donneur'
 
 const nombreDeDonneurs = 4;
-const nomDonneurCorrect = "Dr Maya Curado";
+const nomDonneurCorrect = 'Dr Maya Curado';
 const ageDonneurCorrect = 36;
-const donneursPotentiels = [["Léon Patounec", 22, "M",40],["Dr Emilia Caubert",65, "F",20],["Thomas Parker",61, "M",40],["Béatrice Tapalinga",23, "F",60],["Vlad Koscov",55,"M",30]];
+const donneursPotentiels = [['Léon Patounec', 22, 'M',40],['Dr Emilia Caubert',65, 'F',20],['Thomas Parker',61, 'M',40],['Béatrice Tapalinga',23, 'F',60],['Vlad Koscov',55,'M',30]];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -95,11 +95,102 @@ for(let index=0;index<nombreDeDonneurs;index++){
 }}  
  
   return(
-        <View>
+        <View style={styles.container}>
+          <Text style={styles.title}> Étape 2 </Text>
+          <Text style={styles.instruction}> Rentrer les informations relatives aux donneurs </Text>
         <Text>{resolu}</Text>
+        <Text>
         {Donneurs}
+        </Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    textAlign: 'center',
+    justifyContent: 'start',
+    marginTop: 20,
+    backgroundColor: 'white',
+  },
+  buttonText: {
+    fontSize: 20,
+    color: 'white',
+  },
+  barreTexte: {
+    textAlign: 'center',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: 300,
+    alignSelf: 'center',
+    marginHorizontal: 10,
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: '#148ce8',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  instruction: {
+    textAlign:'center',
+    fontSize: 20,
+    //fontStyle: 'italic',
+    fontWeight: 'bold',
+    margin: 10,
+  },
+  button: {
+    textAlign: 'center',
+    backgroundColor: '#148ce8',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    margin: 30,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+
+  buttonpressed: {
+    textAlign: 'center',
+    backgroundColor: '#accae0',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    margin: 30,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  image: {
+    alignSelf: 'center',
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    width: 300,
+    height: 300,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    margin: 5,
+  },
+  text: {
+    color: 'white',
+    fontSize: 42,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: '#000000a0',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  }, 
+});
 
 export default EcranDeJeu2

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Image, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { Image, Text, TextInput, Button, StyleSheet, Pressable, Dimensions } from 'react-native';
 
 import { useState } from 'react';
 import React from 'react';
@@ -7,18 +7,112 @@ import { View } from 'react-native';
 import ChampAge from './ChampAge';
 
 const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite, 
-    correct, resolu                    
-}) => {
-    return <View>
-            
-            <Text>{nom}</Text>
-            <Button title="Homme" onPress={() => changeGenre(indicationGenre==='M')}/>
-            <Button title="Femme" onPress={() => changeGenre(indicationGenre==='F')}/>
+    correct, resolu}) => {
+    return <scrollView style={styles.container}>           
+            <Text style={styles.nom}>{nom}</Text>
+            <Text style={styles.instruction}> Sexe du donneur ? </Text>
+            <Text>
+                <Pressable style={[indicationGenre==='F' ? [genre  ? styles.button: styles.buttonpressed] : [genre  ? styles.buttonpressed: styles.button]]} title="Homme" onPress={() => changeGenre(indicationGenre==='M')}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
+                <Pressable style={[indicationGenre==='F' ? [genre  ? styles.buttonpressed: styles.button] : [genre  ? styles.button: styles.buttonpressed]]} title="Femme" onPress={() => changeGenre(indicationGenre==='F')}> <Text style={styles.buttonText}> Femme </Text> </Pressable>
+            </Text>
+            <Text style={styles.instruction}> Âge du donneur ? </Text>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
             <>{ageOk&&genre&&<Text>Compatibilité : {compatibilite}%</Text>}</>
-            <>{resolu&&<Button title={correct ? "gagner": "perdre"}/>}</>
+            <>{resolu&&<Pressable style={styles.button} title={correct ? "gagner": "perdre"}> <Text style={styles.buttonText}> Choisir </Text> </Pressable>}</>
             <Text>{resolu}</Text>
-    </View>
+    </scrollView>
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      textAlign: 'center',
+      justifyContent: 'start',
+      marginTop: 20,
+      backgroundColor: 'white',
+      width: Dimensions.get('window').width/4,
+      height: Dimensions.get('window').height-30,
+    },
+    buttonText: {
+      fontSize: 20,
+      color: 'white',
+    },
+    barreTexte: {
+      textAlign: 'center',
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      width: 300,
+      alignSelf: 'center',
+      marginHorizontal: 10,
+    },
+    title: {
+      fontSize: 50,
+      fontWeight: 'bold',
+      color: '#148ce8',
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+    },
+    instruction: {
+      textAlign:'center',
+      fontSize: 20,
+      //fontStyle: 'italic',
+      fontWeight: 'bold',
+      margin: 10,
+    },
+    button: {
+      textAlign: 'center',
+      backgroundColor: '#148ce8',
+      paddingHorizontal: 25,
+      paddingVertical: 10,
+      margin: 25,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+    },
+    buttonpressed: {
+      textAlign: 'center',
+      backgroundColor: '#accae0',
+      paddingHorizontal: 25,
+      paddingVertical: 10,
+      margin: 25,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+    },
+    image: {
+      alignSelf: 'center',
+      flex: 1,
+      resizeMode: 'cover',
+      justifyContent: 'center',
+      width: 300,
+      height: 300,
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      margin: 5,
+    },
+    text: {
+      color: 'white',
+      fontSize: 42,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      backgroundColor: '#000000a0',
+    },
+    input: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+    }, 
+    nom: {
+        fontSize: 25,
+        fontWeight: 'bold',
+    }
+  });
 
 export default Donneur; 

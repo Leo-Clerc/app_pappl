@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View ,Text, TextInput, Button, Pressable, StyleSheet} from 'react-native';
+import { View ,Text, TextInput, Button, Pressable, StyleSheet, } from 'react-native';
 /**
  * 
  * @param {} param0 navigation correspond à la pile d'écrans rencontrés, permettant de se déplacer d'un écran à un autre.
