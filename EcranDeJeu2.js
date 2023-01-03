@@ -8,7 +8,8 @@ import {  Timer } from 'react-native-stopwatch-timer';
 const nombreDeDonneurs = 4;
 const nomDonneurCorrect = 'Dr Maya Curado';
 const ageDonneurCorrect = 33;
-const donneursPotentiels = [['Léon Patounec', 22, 'M',40],['Dr Emilia Caubert',65, 'F',60],['Thomas Parker',61, 'M',60],['Béatrice Tapalinga',23, 'F',0],['Vlad Koscov',37,'M',0]];
+const imageMaya = './pictures/Maya.png'
+const donneursPotentiels = [['Léon Patounec', 22, 'M',40,'./pictures/Leon.png'],['Dr Emilia Caubert',65, 'F',60,'./pictures/Emilia.png'],['Tomas Parker',61, 'M',60,'./pictures/Tomas.png'],['Béatrice Tapalinga',23, 'F',0,'./pictures/Beatrice.png'],['Vlad Koscov',37,'M',0,'./pictures/Vlad.png']];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -71,7 +72,7 @@ for(let index=0;index<nombreDeDonneurs;index++){
   if(index==positionDonneurCorrect){
     Donneurs.push(<Donneur key={index.toString()} nom = {nomDonneurCorrect} age = {ages[index]} bonAge = {ageDonneurCorrect} 
     changeAge = {changeAges[index]} ageOk = {agesOk[index]} changeAgeOk = {changeAgesOk[index]} indicationGenre = "F" genre = {genres[index]} changeGenre={changeGenres[index]} compatibilite= {100}
-    correct = {true} resolu = {resolu} 
+    correct = {true} resolu = {resolu} imageSource = {imageMaya}
     />)
     donneurCorrectAjoute = true;
   }
@@ -84,7 +85,7 @@ for(let index=0;index<nombreDeDonneurs;index++){
   genre = {genres[index]} 
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index]][3]}
-  correct = {false} resolu = {resolu}
+  correct = {false} resolu = {resolu} imageSource = {donneursPotentiels[indexFauxDonneurs[index]][4]}
   />)
   }
   else{Donneurs.push(<Donneur key={index.toString()} nom = {donneursPotentiels[indexFauxDonneurs[index-1]][0]} 
@@ -95,7 +96,7 @@ for(let index=0;index<nombreDeDonneurs;index++){
   genre = {genres[index]} 
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index-1]][3]}
-  correct = {false} resolu = {resolu}
+  correct = {false} resolu = {resolu} imageSource = {donneursPotentiels[indexFauxDonneurs[index-1]][4]}
   />)
 }}  
  
