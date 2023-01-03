@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Button, StyleSheet, View, Text, Pressable, ImageBackground, Image } from 'react-native';
+import { Button, StyleSheet, View, Text, Pressable, ImageBackground, Image, Dimensions } from 'react-native';
+
 
 let imgSrc = require('./pictures/test_photo.png');
 const Accueil = ({ navigation }) => {
