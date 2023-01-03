@@ -116,8 +116,8 @@ for(let index=0;index<nombreDeDonneurs;index++){
             }}
             //can call a function On finish of the time
             getTime={(time) => {
-              time = time.split(':')
-              time = (((Number(time[0])*3600) + (Number(time[1])*60) + Number(time[2])) * 1000) + Number(time[3])
+              time = time.split(':');
+              time = (((Number(time[0])*3600) + (Number(time[1])*60) + Number(time[2])) * 1000);
               global.time = time;
               console.log(time);
             }}
