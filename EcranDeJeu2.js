@@ -7,8 +7,8 @@ import {  Timer } from 'react-native-stopwatch-timer';
 
 const nombreDeDonneurs = 4;
 const nomDonneurCorrect = 'Dr Maya Curado';
-const ageDonneurCorrect = 36;
-const donneursPotentiels = [['Léon Patounec', 22, 'M',40],['Dr Emilia Caubert',65, 'F',20],['Thomas Parker',61, 'M',40],['Béatrice Tapalinga',23, 'F',60],['Vlad Koscov',55,'M',30]];
+const ageDonneurCorrect = 33;
+const donneursPotentiels = [['Léon Patounec', 22, 'M',40],['Dr Emilia Caubert',65, 'F',60],['Thomas Parker',61, 'M',60],['Béatrice Tapalinga',23, 'F',0],['Vlad Koscov',37,'M',0]];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
