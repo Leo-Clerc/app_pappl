@@ -8,8 +8,9 @@ import {  Timer } from 'react-native-stopwatch-timer';
 const nombreDeDonneurs = 4;
 const nomDonneurCorrect = 'Dr Maya Curado';
 const ageDonneurCorrect = 33;
+const sequenceDonneurCorrect = "M Y H K L"
 const imageMaya = './pictures/Maya.png'
-const donneursPotentiels = [['Léon Patounec', 22, 'M',40,'./pictures/Leon.png'],['Dr Emilia Caubert',65, 'F',60,'./pictures/Emilia.png'],['Tomas Parker',61, 'M',60,'./pictures/Tomas.png'],['Béatrice Tapalinga',23, 'F',0,'./pictures/Beatrice.png'],['Vlad Koscov',37,'M',0,'./pictures/Vlad.png']];
+const donneursPotentiels = [['Léon Patounec', 22, 'M',40,'./pictures/Leon.png',"M Y W I T"],['Dr Emilia Caubert',65, 'F',60,'./pictures/Emilia.png', "M G R K P"],['Tomas Parker',61, 'M',60,'./pictures/Tomas.png',"M Y H A H"],['Béatrice Tapalinga',23, 'F',0,'./pictures/Beatrice.png', "_"],['Vlad Koscov',37,'M',0,'./pictures/Vlad.png',"_"]];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -48,8 +49,10 @@ const EcranDeJeu2 = ({ navigation }) => {
   const changeAgesOk = []
   const genres=[]
   const changeGenres = []
+  const mismatchesOk = []
+  const changeMismatchesOk = []
   let [resolu,setResolu] = useState(false);
-  const verifierTout = () => {if(genres.every(Boolean)&&agesOk.every(Boolean)){setResolu(resolu=true)}};
+  const verifierTout = () => {if(mismatchesOk.every(Boolean)){setResolu(resolu=true)}};
   useEffect(() => verifierTout());
   for(index=0;index<nombreDeDonneurs;index++){
     const [age,setAge] = useState(20);
@@ -64,15 +67,23 @@ const EcranDeJeu2 = ({ navigation }) => {
     genres.push(genre)
     const changeGenre = (value) => {setGenre(value);}
     changeGenres.push(changeGenre)
+    const [mismatchOk, setMismatchOk] = useState()
+    mismatchesOk.push(mismatchOk)
+    const changeMismatchOk = (value) => {setMismatchOk(value);}
+    changeMismatchesOk.push(changeMismatchOk)
   }
   const Donneurs = []
   let donneurCorrectAjoute = false;
 for(let index=0;index<nombreDeDonneurs;index++){
+  /*L'objectif de cette boucle for est de permettre de s'affranchir du nombre de donneurs affichés à l'écran au cas ou l'application 
+  viendrait à changer un jour*/ 
   dernierStop = index;
   if(index==positionDonneurCorrect){
     Donneurs.push(<Donneur key={index.toString()} nom = {nomDonneurCorrect} age = {ages[index]} bonAge = {ageDonneurCorrect} 
     changeAge = {changeAges[index]} ageOk = {agesOk[index]} changeAgeOk = {changeAgesOk[index]} indicationGenre = "F" genre = {genres[index]} changeGenre={changeGenres[index]} compatibilite= {100}
     correct = {true} resolu = {resolu} imageSource = {imageMaya}
+    mismatchOk = {mismatchesOk[index]} changeMismatchOk = {changeMismatchesOk[index]}
+    sequence = {sequenceDonneurCorrect}
     />)
     donneurCorrectAjoute = true;
   }
@@ -86,6 +97,8 @@ for(let index=0;index<nombreDeDonneurs;index++){
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index]][3]}
   correct = {false} resolu = {resolu} imageSource = {donneursPotentiels[indexFauxDonneurs[index]][4]}
+  mismatchOk = {mismatchesOk[index]} changeMismatchOk = {changeMismatchesOk[index]}
+  sequence = {donneursPotentiels[indexFauxDonneurs[index]][5]}
   />)
   }
   else{Donneurs.push(<Donneur key={index.toString()} nom = {donneursPotentiels[indexFauxDonneurs[index-1]][0]} 
@@ -97,6 +110,8 @@ for(let index=0;index<nombreDeDonneurs;index++){
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index-1]][3]}
   correct = {false} resolu = {resolu} imageSource = {donneursPotentiels[indexFauxDonneurs[index-1]][4]}
+  mismatchOk = {mismatchesOk[index]} changeMismatchOk = {changeMismatchesOk[index]}
+  sequence = {donneursPotentiels[indexFauxDonneurs[index-1]][5]}
   />)
 }}  
  
