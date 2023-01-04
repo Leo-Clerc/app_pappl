@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   button: {
     textAlign: 'center',
     backgroundColor: '#148ce8',
-    paddingHorizontal: 30,
+    paddingHorizontal: Dimensions.get('window').width / 40,
     paddingVertical: 15,
     margin: 30,
     borderTopLeftRadius: 20,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   buttonpressed: {
     textAlign: 'center',
     backgroundColor: '#accae0',
-    paddingHorizontal: 30,
+    paddingHorizontal: Dimensions.get('window').width / 40,
     paddingVertical: 15,
     margin: 30,
     borderTopLeftRadius: 20,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    width: Dimensions.get('window').width/4-10,
+    width: Dimensions.get('window').width/4-20,
     alignSelf: 'center',
   }, 
 });

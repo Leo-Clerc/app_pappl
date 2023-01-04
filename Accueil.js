@@ -39,18 +39,20 @@ const Accueil = ({ navigation }) => {
       textAlign: 'center',
       justifyContent: 'start',
       marginTop: 20,
+      width: Dimensions.get('window').width,
     },
     buttonText: {
       fontSize: 20,
       color: 'white',
     },
     title: {
-      textAlign: 'center',
-      fontSize: 50,
+      alignSelf: 'center',
+      fontSize: 40,
       fontWeight: 'bold',
       color: '#148ce8',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
+      width: Dimensions.get('window').width / 2,
 
     },
     soustitre: {
@@ -73,7 +75,7 @@ const Accueil = ({ navigation }) => {
     },
     bottom: {
       flex: 0.3,
-      backgroundColor: "pink",
+      backgroundColor: 'pink',
       borderWidth: 5,
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,

@@ -9,22 +9,21 @@ import ChampAge from './ChampAge';
 
 
 const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk, indicationGenre , genre, changeGenre, compatibilite, 
-    correct, resolu}) => {
+    correct, resolu, stopTimer}) => {
     const navigation = useNavigation();
     return <View style={styles.container}>           
             <Text style={styles.nom}>{nom}</Text>
             <Text style={styles.instruction}> Sexe du donneur ? </Text>
             <Text>
-                <Pressable style={[indicationGenre==='F' ? [genre  ? styles.button: styles.buttonpressed] : [genre  ? styles.buttonpressed: styles.button]]} title="Homme" onPress={() => changeGenre(indicationGenre==='M')}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
-                <Pressable style={[indicationGenre==='F' ? [genre  ? styles.buttonpressed: styles.button] : [genre  ? styles.button: styles.buttonpressed]]} title="Femme" onPress={() => changeGenre(indicationGenre==='F')}> <Text style={styles.buttonText}> Femme </Text> </Pressable>
+                <Pressable style={[indicationGenre === 'F' ? [genre  ? styles.button : styles.buttonpressed] : [genre  ? styles.buttonpressed: styles.button]]} title="Homme" onPress={() => changeGenre(indicationGenre==='M')}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
+                <Pressable style={[indicationGenre === 'F' ? [genre  ? styles.buttonpressed : styles.button] : [genre  ? styles.button: styles.buttonpressed]]} title="Femme" onPress={() => changeGenre(indicationGenre==='F')}> <Text style={styles.buttonText}> Femme </Text> </Pressable>
             </Text>
             <Text style={styles.instruction}> Âge du donneur ? </Text>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
-            <>{ageOk&&genre&&<Text>Compatibilité : {compatibilite}%</Text>}</>
-            <>{resolu&&<Pressable style={styles.button} title={correct ? "gagner": "perdre"}onPress={() =>
-          navigation.navigate('EcranDeFinDePartie',{
-            gagne:  correct
-          })}> <Text style={styles.buttonText}> Choisir </Text> </Pressable>}</>
+            <>{ageOk && genre && <Text>Compatibilité : {compatibilite}%</Text>}</>
+            <>{resolu && <Pressable style={styles.button} title={correct ? 'gagner' : 'perdre'}onPress={() =>
+          {navigation.navigate('EcranDeFinDePartie',{gagne:  correct});}}>
+          <Text style={styles.buttonText}> Choisir </Text> </Pressable>}</>
             <Text>{resolu}</Text>
     </View>
 }
@@ -37,8 +36,8 @@ const styles = StyleSheet.create({
       justifyContent: 'start',
       marginTop: 20,
       backgroundColor: 'white',
-      width: Dimensions.get('window').width/4,
-      height: Dimensions.get('window').height-30,
+      width: Dimensions.get('window').width / 4,
+      height: Dimensions.get('window').height - 30,
     },
     buttonText: {
       fontSize: 20,
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
     button: {
       textAlign: 'center',
       backgroundColor: '#148ce8',
-      paddingHorizontal: 25,
+      paddingHorizontal: Dimensions.get('window').width / 60,
       paddingVertical: 10,
       margin: 25,
       borderTopLeftRadius: 20,
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
     buttonpressed: {
       textAlign: 'center',
       backgroundColor: '#accae0',
-      paddingHorizontal: 25,
+      paddingHorizontal: Dimensions.get('window').width / 60,
       paddingVertical: 10,
       margin: 25,
       borderTopLeftRadius: 20,

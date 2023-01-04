@@ -41,6 +41,7 @@ const EcranDeJeu2 = ({ navigation }) => {
   const [isTimerStart, setIsTimerStart] = useState(true);
   const [timerDuration, setTimerDuration] = useState(timer);
   const [resetTimer, setResetTimer] = useState(false);
+  const StopTimer = (value) => {setIsTimerStart(value);}
   const ages = []
   const changeAges = []
   const agesOk = []
@@ -96,7 +97,8 @@ for(let index=0;index<nombreDeDonneurs;index++){
   changeGenre={changeGenres[index]} 
   compatibilite= {donneursPotentiels[indexFauxDonneurs[index-1]][3]}
   correct = {false} resolu = {resolu}
-  />)
+  stopTimer = {StopTimer}
+  />);
 }}  
  
   return(
