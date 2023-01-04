@@ -18,7 +18,7 @@ const Aide = () => {
         onPress={() =>
           navigation.navigate('Accueil')
         }
-        ><Text style={styles.buttonText}> Acceuil </Text> </Pressable>
+        ><Text style={styles.buttonText}> Accueil </Text> </Pressable>
         </View>
     )
 }
