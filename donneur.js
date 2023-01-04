@@ -20,6 +20,7 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
             </Text>
             <Text style={styles.instruction}> Âge du donneur ? </Text>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
+            <>{ageOk&&genre&&<Text style={styles.instruction}>Indiquer le nombre de Mismatch</Text>}</>
             <>{ageOk&&genre&&<Text>Dr Saha : M Y H K L%</Text>}</>
             <>{ageOk&&genre&&<Text>{nom} : {sequence}%</Text>}</>
             <>{ageOk&&genre&&<TextInput onChangeText={value => changeMismatchOk(parseInt(value)===((100-compatibilite)/20))} style = {styles.input}/>}</> 
@@ -117,6 +118,8 @@ const styles = StyleSheet.create({
       margin: 12,
       borderWidth: 1,
       padding: 10,
+      width: Dimensions.get('window').width/5-10,
+      alignSelf: 'center',
     }, 
     nom: {
         fontSize: 25,

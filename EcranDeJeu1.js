@@ -44,6 +44,7 @@ const EcranDeJeu1 = ({ route, navigation }) => {
         <Text style={styles.instruction}>Trouver les informations sur le docteur Saha pour continuer</Text>
         <Image style={styles.image} source={imgSrc}/>
         <Receveur/>
+        <Text> </Text>
         </View>      
     );
 }
