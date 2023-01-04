@@ -65,7 +65,13 @@ const EcranDeJeu2 = ({ navigation }) => {
   for(index=0;index<nombreDeDonneurs;index++){
     const [age,setAge] = useState(20);
     ages.push(age)
-    const changeAge = (value) => setAge(value)
+    const changeAge = (value) => {if(isNaN(parseInt(value)&&isNaN(value))){setAge(20)}
+    else{if(parseInt(value)<20){setAge(20)}
+  else{if(parseInt(value)>80){setAge(80)}
+  else{setAge(value)}  
+}
+  }
+  }
     changeAges.push(changeAge)
     const [ageOk,setAgeOk] = useState(false)
     agesOk.push(ageOk)
