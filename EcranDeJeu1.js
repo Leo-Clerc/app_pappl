@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component, useState } from 'react';
-import { Text, View, Button, Pressable, StyleSheet, scrollView, TouchableHighlight, Image } from 'react-native';
+import { Text, View, Button, Pressable, StyleSheet, scrollView, TouchableHighlight, Image, Dimensions } from 'react-native';
 import Receveur from './Receveur';
 import {  Timer } from 'react-native-stopwatch-timer';
 let imgSrc = require('./pictures/docteur.png');
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
       height: 40,
       borderColor: 'gray',
       borderWidth: 1,
-      width: 300,
+      width: Dimensions.get('window').width/5-10,
       alignSelf: 'center',
       marginHorizontal: 10,
     },

@@ -21,7 +21,7 @@ const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
         step = {1}
         minimumValue = {20}
         maximumValue = {80}
-        style={{width: Dimensions.get('window').width/4-10, alignSelf: 'center',}}
+        style={{width: Dimensions.get('window').width/5-10, alignSelf: 'center',}}
     />
 </View>
 }
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        width: Dimensions.get('window').width/4-10,
+        width: Dimensions.get('window').width/5-10,
         alignSelf: 'center',
       }, 
 });

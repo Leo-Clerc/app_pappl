@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, StyleSheet, Pressable } from 'react-native';
+import { Text, View, Button, StyleSheet, Pressable, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Donneur from './Donneur';
 import {  Timer } from 'react-native-stopwatch-timer';
@@ -233,6 +233,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    width: Dimensions.get('window').width/5-10,
   }, 
 });
 
