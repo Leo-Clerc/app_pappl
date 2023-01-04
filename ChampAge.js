@@ -13,7 +13,7 @@ import { StyleSheet } from 'react-native-web';
 
 const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
     return  <View>
-    <TextInput style = {styles.input} value = {age.toString()} onChangeText = {(value) => {changeAge(parseInt(value)); changeAgeOk(parseInt(value) == bonAge)}}  keyboardType="numeric"  />
+    <TextInput style = {styles.input} value = {age.toString()} onChangeText = {(value) => {changeAge(parseInt(value)); changeAgeOk(parseInt(value,10) == bonAge)}}  keyboardType="numeric"  />
     <Slider
         value= {age}
         onValueChange={(value) => {changeAge(value)}}
