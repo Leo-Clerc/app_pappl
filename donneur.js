@@ -22,8 +22,8 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
             </Text>
             <Text style={styles.instruction}> Âge du donneur ? </Text>
             <ChampAge bonAge={bonAge} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
-            <>{ageOk&&genre&&<Text>Dr Saha : M Y H K L%</Text>}</>
-            <>{ageOk&&genre&&<Text>{nom} : {sequence}%</Text>}</>
+            <>{ageOk&&genre&&<Text>Dr Saha : M Y H K L</Text>}</>
+            <>{ageOk&&genre&&<Text>{nom} : {sequence}</Text>}</>
             <>{ageOk&&genre&&<TextInput onChangeText={value => changeMismatchOk(parseInt(value)===((100-compatibilite)/20))} style = {styles.input}/>}</> 
             <>{mismatchOk&&<Text>Compatibilité : {compatibilite}</Text>}</>
             <>{resolu&&<Pressable style={styles.button} title={correct ? "gagner": "perdre"}onPress={() =>
