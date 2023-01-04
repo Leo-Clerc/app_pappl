@@ -12,11 +12,12 @@ import { StyleSheet } from 'react-native-web';
  */
 
 const ChampAge = ({bonAge, age, changeAge, changeAgeOk}) =>{
+    const [ageRempli, setAgeRempli] = useState(age)
     return  <View>
-    <TextInput style = {styles.input} value = {age.toString()} onChangeText = {(value) => {changeAge(parseInt(value)); changeAgeOk(parseInt(value) == bonAge)}}  keyboardType="numeric"  />
+    <TextInput style = {styles.input} value = {ageRempli.toString()} onChangeText = {(value) => setAgeRempli(parseInt(value))} onBlur = {() => {changeAge(parseInt(ageRempli)); setAgeRempli(age); changeAgeOk(parseInt(ageRempli) == bonAge)}}  keyboardType="numeric"  />
     <Slider
         value= {age}
-        onValueChange={(value) => {changeAge(value)}}
+        onValueChange={(value) => {changeAge(value); setAgeRempli(value)}}
         onSlidingComplete={(value) => changeAgeOk(value==bonAge)}
         step = {1}
         minimumValue = {20}

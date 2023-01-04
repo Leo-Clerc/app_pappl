@@ -14,25 +14,28 @@ const seqProteine = 'MYHKL'
 
 const Receveur = () => {
     const [ageOk,setAgeOk] = useState(false)
-    const [age, setAge] = useState(20)
-    const [genre, setGenre] = useState()
+    const [age, setAge] = useState(20);
+    const [genre, setGenre] = useState();
     const navigation = useNavigation();
     let [proteineOk, setProteineOk] = useState(false)
     const changeAgeOk = (bool) => setAgeOk(bool);
-    const changeAge = (value) => setAge(value)
-    return <View style={styles.container}>
-                <Text style={styles.instruction}> Quelle est le sexe du docteur Saha ?</Text>
-                <Text>
-                  <Pressable style={[genre ? styles.button : styles.buttonpressed]} title="Homme" onPress={() => setGenre(false)}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
-                  <Pressable style={[genre ? styles.buttonpressed : styles.button]} title="Femme" onPress={() => setGenre(true)}> <Text style={styles.buttonText}> Femme </Text> </Pressable>
-                </Text>
-                <Text style={styles.instruction}> Quelle est l'âge du docteur Saha ? </Text>
-                <ChampAge style={styles.barreTexte} bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
-                <Text style={styles.instruction}> Quelle est la séquence protéinique du docteur Saha ? </Text>
-                <TextInput  onChangeText={value => setProteineOk(value===seqProteine)} style = {styles.input}/>
-                <>{ageOk&&proteineOk&&genre&&<Pressable  style={styles.button} title = "Continuer" onPress={() =>
+    const changeAge = (value) => {if(isNaN(parseInt(value)&&isNaN(value))){setAge(20)}
+    else{if(parseInt(value)<20){setAge(20)}
+  else{if(parseInt(value)>80){setAge(80)}
+  else{setAge(value)}  
+}
+  }
+  }
+    
+    return <View>
+                <Image style={{width: 200, height: 300}} source={imgSrc}/>
+                <Button title="Homme" onPress={() => setGenre(false)}/>
+                <Button title="Femme" onPress={() => setGenre(true)}/>
+                <ChampAge bonAge={AgeDoc} age = {age} changeAge={changeAge} changeAgeOk = {changeAgeOk}/>
+                <TextInput onChangeText={value => setProteineOk(value===seqProteine)} style = {styles.input}/>
+                <>{ageOk&&proteineOk&&genre&&<Button title = "Continuer" onPress={() =>
           navigation.navigate('EcranDeJeu2')
-        }> <Text style={styles.buttonText}> Continuer </Text> </Pressable> }</>
+        }/>}</>
         <Text>{ageOk}</Text>
             </View>
 }
@@ -118,14 +121,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000a0',
   },
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
     width: Dimensions.get('window').width/4-10,
     alignSelf: 'center',
-  }, 
+    }, 
 });
-
-
 export default Receveur
