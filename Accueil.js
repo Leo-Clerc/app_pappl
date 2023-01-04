@@ -39,7 +39,6 @@ const Accueil = ({ navigation }) => {
       textAlign: 'center',
       justifyContent: 'start',
       marginTop: 20,
-      width: Dimensions.get('window').width,
     },
     buttonText: {
       fontSize: 20,
@@ -52,7 +51,6 @@ const Accueil = ({ navigation }) => {
       color: '#148ce8',
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      width: Dimensions.get('window').width / 2,
 
     },
     soustitre: {

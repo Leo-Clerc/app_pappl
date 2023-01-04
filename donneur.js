@@ -12,7 +12,7 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
     correct, resolu, sequence, mismatchOk, changeMismatchOk}) => {
     const navigation = useNavigation();
     return <View style={styles.container}>           
-            <Text style={styles.nom}>{nom}</Text>
+            <Text numberOfLines={1} style={styles.nom}>{nom}</Text>
             <Text style={styles.instruction}> Sexe du donneur ? </Text>
             <Text>
                 <Pressable style={[indicationGenre === 'F' ? [genre  ? styles.button : styles.buttonpressed] : [genre  ? styles.buttonpressed: styles.button]]} title="Homme" onPress={() => changeGenre(indicationGenre==='M')}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
@@ -118,12 +118,13 @@ const styles = StyleSheet.create({
       margin: 12,
       borderWidth: 1,
       padding: 10,
-      width: Dimensions.get('window').width/5-10,
+      width: Dimensions.get('window').width/4-10,
       alignSelf: 'center',
     }, 
     nom: {
         fontSize: 25,
         fontWeight: 'bold',
+
     }
   });
 

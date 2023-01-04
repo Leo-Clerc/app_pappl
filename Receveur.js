@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    width: Dimensions.get('window').width/5-10,
+    width: Dimensions.get('window').width/4-10,
     alignSelf: 'center',
   }, 
 });
