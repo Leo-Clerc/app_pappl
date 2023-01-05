@@ -6,7 +6,7 @@
 /* eslint-disable prettier/prettier */
 
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, StyleSheet, Pressable } from 'react-native';
+import { Text, View, Button, StyleSheet, Pressable, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Donneur from './Donneur';
 import {  Timer } from 'react-native-stopwatch-timer';
@@ -49,6 +49,7 @@ const EcranDeJeu2 = ({ navigation }) => {
   const [isTimerStart, setIsTimerStart] = useState(true);
   const [timerDuration, setTimerDuration] = useState(timer);
   const [resetTimer, setResetTimer] = useState(false);
+  const StopTimer = (value) => {setIsTimerStart(value);}
   const ages = []
   const changeAges = []
   const agesOk = []
@@ -252,6 +253,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    width: Dimensions.get('window').width/5-10,
   }, 
 });
 
