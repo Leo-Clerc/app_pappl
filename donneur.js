@@ -4,7 +4,7 @@ import { Image, Text, TextInput, Button, StyleSheet, Pressable, Dimensions } fro
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import ChampAge from './ChampAge';
 
 
@@ -15,7 +15,7 @@ const Donneur = ({nom, age , bonAge, imageSource, ageOk, changeAge, changeAgeOk,
     const navigation = useNavigation();
     return <View style={styles.container}>           
             <Text numberOfLines={1} style={styles.nom}>{nom}</Text>
-            <Image source = {require({imageSource})} style={{width: 200, height: 300}}/>
+            <Image source = {imageSource} style={{width: 200, height: 300}}/>
             <Text style={styles.instruction}> Sexe du donneur ? </Text>
             <Text>
                 <Pressable style={[indicationGenre === 'F' ? [genre  ? styles.button : styles.buttonpressed] : [genre  ? styles.buttonpressed: styles.button]]} title="Homme" onPress={() => changeGenre(indicationGenre==='M')}> <Text style={styles.buttonText}> Homme </Text> </Pressable>
