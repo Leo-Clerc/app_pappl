@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
       resizeMode: 'cover',
       justifyContent: 'center',
       width: 300,
-      height: 200,
+      height: 150,
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,
       borderTopLeftRadius: 20,
