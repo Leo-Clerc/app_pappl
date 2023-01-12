@@ -10,12 +10,9 @@ import EcranDeJeu2 from './EcranDeJeu2';
 import EcranDeFinDePartie from './EcranDeFinDePartie';
 /* eslint-disable prettier/prettier */
 const Stack = createNativeStackNavigator();
-/**
- * 
- * @returns 
- */
+
 const App = () => {
-  return 
+  return (
     <NavigationContainer initialRouteName="Accueil">
       <Stack.Navigator>
         <Stack.Screen
@@ -30,7 +27,7 @@ const App = () => {
         <Stack.Screen name='EcranDeFinDePartie' component={EcranDeFinDePartie}/>
       </Stack.Navigator>
     </NavigationContainer>
-  ;
+  );
 };
 
 
