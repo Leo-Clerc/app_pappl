@@ -1,4 +1,7 @@
 /* eslint-disable prettier/prettier */
+/*
+This component is the first screen of the app. It allows to go to the help screen or the settings for the game screen.
+*/
 import React, { Component } from 'react';
 import { Button, StyleSheet, View, Text, Pressable, ImageBackground, Image, Dimensions } from 'react-native';
 
