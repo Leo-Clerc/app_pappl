@@ -1,2 +1,12 @@
 # app_pappl
- Projet d'application où on code un escape game (c'est faux)
+This is an application made to go with the esacape game "Transplant'action" made by the INSERM and Nantes CHU.
+
+Autors : Léo Clerc et Corentin Clément
+
+To run it : 
+```bash
+npm i
+```
+```bash
+npx expo start --web
+```

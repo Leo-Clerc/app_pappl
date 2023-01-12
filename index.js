@@ -3,9 +3,11 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
-import Aide from './Aide';
-import ParametragePartie from './ParametragePartie';
 import {name as appName} from './app.json';
-
+import {registerRootComponent} from 'expo';
+import './styles.css'
+import App from './App';
 AppRegistry.registerComponent(appName, () => App);
+registerRootComponent(App);
+
+

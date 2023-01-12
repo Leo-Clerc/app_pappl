@@ -8,9 +8,7 @@ import ParametragePartie from './ParametragePartie';
 import EcranDeJeu1 from './EcranDeJeu1';
 import EcranDeJeu2 from './EcranDeJeu2';
 import EcranDeFinDePartie from './EcranDeFinDePartie';
-/**
- * 
- */
+/* eslint-disable prettier/prettier */
 const Stack = createNativeStackNavigator();
 /**
  * 
