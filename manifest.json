@@ -1,0 +1,7 @@
+{
+  "display": "standalone",
+  "lang": "en",
+  "name": "app_pappl",
+  "short_name": "app_pappl",
+  "start_url": "/?utm_source=web_app_manifest"
+}
